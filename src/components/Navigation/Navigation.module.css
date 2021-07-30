@@ -1,0 +1,149 @@
+@import url('../../css//colors.css');
+
+.nav {
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid white;
+}
+
+.logo,
+.navList ul li a {
+    position: relative;
+    padding: 8px 10px;
+}
+
+.logo {
+    font-size: 26px;
+    font-family: 'Merriweather', serif;
+}
+
+.logo span {
+    transition: color 0.3s;
+}
+
+.logo:hover span {
+    color: var(--color-blue);
+}
+
+.navList {
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    top: 0;
+    transform: translateX(110%);
+    background-color: black;
+    transition: transform 0.3s;
+    z-index: 100;
+}
+
+.navList--active {
+    transform: translateX(-5%);
+}
+
+.navList ul {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navList ul li {
+    margin-top: 20px;
+}
+
+.navList ul li a {
+    font-size: 33px;
+}
+
+.active span {
+    color: var(--color-blue);
+}
+
+.active::before {
+    position: absolute;
+    left: 0;
+    width: 2px;
+    background-color: var(--color-blue);
+    content: '';
+}
+
+.active::before {
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    z-index: 0;
+}
+/* .active::after {
+    right: 14px;
+    width: 10px;
+    background-color: var(--color-blue);
+    z-index: 1;
+} */
+
+/*NAVBAR */
+.barBox {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.bar,
+.bar::before,
+.bar::after {
+    position: absolute;
+    width: 23px;
+    height: 2px;
+    background-color: white;
+    z-index: -1;
+    transition: transform 0.3s;
+}
+
+.bar::before,
+.bar::after {
+    content: '';
+    left: 0;
+}
+
+.bar::before {
+    top: -5px;
+}
+.bar::after {
+    top: 5px;
+}
+
+.bar--active {
+    background-color: transparent;
+}
+
+.bar--active::before,
+.bar--active::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bar--active::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.bar--active::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+/*NAVBAR END */
+
+@media (min-width: 768px) {
+    .barBox {
+        display: none;
+    }
+}

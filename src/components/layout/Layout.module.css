@@ -1,0 +1,9 @@
+.container {
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.main {
+    text-align: center;
+    margin-top: 60px;
+}

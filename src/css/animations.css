@@ -1,0 +1,36 @@
+.slideInR {
+    animation: slideInR 1.2s ease-out;
+}
+
+.slideInL {
+    animation: slideInL 1.2s ease-out;
+}
+
+.show {
+    animation: showElement 1.6s;
+}
+
+@keyframes slideInR {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideInL {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes showElement {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

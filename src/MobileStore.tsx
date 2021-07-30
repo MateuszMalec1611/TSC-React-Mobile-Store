@@ -11,7 +11,7 @@ const MobileStore = () => {
                     <Greeting />
                 </Route>
                 <Layout>
-                    <Route path="home">
+                    <Route path="/home">
                         <Home />
                     </Route>
                 </Layout>

@@ -3,7 +3,7 @@ export interface HomeProps {
 }
  
 const Home: React.FC<HomeProps> = () => {
-    return ( <div></div>);
+    return ( <div>HOME</div>);
 }
  
 export default Home;

@@ -1,4 +1,4 @@
-@import url('../../css//colors.css');
+@import url('../../css/colors.css');
 
 .nav {
     padding: 10px 14px;
@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border-bottom: 1px solid white;
+    background-color: black;
 }
 
 .logo,
@@ -21,10 +21,6 @@
 }
 
 .logo span {
-    transition: color 0.3s;
-}
-
-.logo:hover span {
     color: var(--color-blue);
 }
 
@@ -63,27 +59,6 @@
     color: var(--color-blue);
 }
 
-.active::before {
-    position: absolute;
-    left: 0;
-    width: 2px;
-    background-color: var(--color-blue);
-    content: '';
-}
-
-.active::before {
-    top: 50%;
-    transform: translateY(-50%);
-    height: 60%;
-    z-index: 0;
-}
-/* .active::after {
-    right: 14px;
-    width: 10px;
-    background-color: var(--color-blue);
-    z-index: 1;
-} */
-
 /*NAVBAR */
 .barBox {
     position: relative;
@@ -98,6 +73,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    background-color: var(--color-blue);
 }
 .bar,
 .bar::before,
@@ -105,7 +81,6 @@
     position: absolute;
     width: 23px;
     height: 2px;
-    background-color: white;
     z-index: -1;
     transition: transform 0.3s;
 }
@@ -114,6 +89,7 @@
 .bar::after {
     content: '';
     left: 0;
+    background-color: var(--color-white);
 }
 
 .bar::before {
@@ -145,5 +121,50 @@
 @media (min-width: 768px) {
     .barBox {
         display: none;
+    }
+
+    .navList {
+        position: unset;
+        width: unset;
+        height: unset;
+        top: unset;
+        transform: unset;
+        background-color: transparent;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+    
+    .navList ul {
+        flex-direction: row;
+    }
+    .navList ul li {
+        margin-top: unset;
+    }
+
+    .navList ul li a {
+        font-size: 28px;
+    }
+
+    .active::before,
+    .active::after {
+        position: absolute;
+        top: unset;
+        left: unset;
+        bottom: 5px;
+        height: 2px;
+    }
+
+    .active::before {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        background-color: var(--color-white);
+    }
+    .active::after {
+        right: 18%;
+        background-color: var(--color-blue);
+        width: 20px;
     }
 }

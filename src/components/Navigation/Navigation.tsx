@@ -29,6 +29,11 @@ const Navigation: React.FC = () => {
                     </li>
                     <li>
                         <NavLink activeClassName={styles.active} to="/" exact>
+                            P<span>r</span>oducts
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink activeClassName={styles.active} to="/" exact>
                             E<span>x</span>it
                         </NavLink>
                     </li>

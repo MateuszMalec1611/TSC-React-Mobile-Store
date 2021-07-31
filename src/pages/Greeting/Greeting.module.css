@@ -44,8 +44,8 @@
     text-transform: uppercase;
     background-color: transparent;
     font-size: 18px;
-    color: white;
-    border: 1px solid white;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
     box-shadow: 4px 4px 5px black;
     border-radius: 6px;
     transition: background-color 0.2s 0.2s, transform 0.3s;

@@ -1,0 +1,170 @@
+@import url('../../css/colors.css');
+
+.nav {
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: black;
+}
+
+.logo,
+.navList ul li a {
+    position: relative;
+    padding: 8px 10px;
+}
+
+.logo {
+    font-size: 26px;
+    font-family: 'Merriweather', serif;
+}
+
+.logo span {
+    color: var(--color-blue);
+}
+
+.navList {
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    top: 0;
+    transform: translateX(110%);
+    background-color: black;
+    transition: transform 0.3s;
+    z-index: 100;
+}
+
+.navList--active {
+    transform: translateX(-5%);
+}
+
+.navList ul {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navList ul li {
+    margin-top: 20px;
+}
+
+.navList ul li a {
+    font-size: 33px;
+}
+
+.active span {
+    color: var(--color-blue);
+}
+
+/*NAVBAR */
+.barBox {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-blue);
+}
+.bar,
+.bar::before,
+.bar::after {
+    position: absolute;
+    width: 23px;
+    height: 2px;
+    z-index: -1;
+    transition: transform 0.3s;
+}
+
+.bar::before,
+.bar::after {
+    content: '';
+    left: 0;
+    background-color: var(--color-white);
+}
+
+.bar::before {
+    top: -5px;
+}
+.bar::after {
+    top: 5px;
+}
+
+.bar--active {
+    background-color: transparent;
+}
+
+.bar--active::before,
+.bar--active::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bar--active::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.bar--active::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+/*NAVBAR END */
+
+@media (min-width: 768px) {
+    .barBox {
+        display: none;
+    }
+
+    .navList {
+        position: unset;
+        width: unset;
+        height: unset;
+        top: unset;
+        transform: unset;
+        background-color: transparent;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+    
+    .navList ul {
+        flex-direction: row;
+    }
+    .navList ul li {
+        margin-top: unset;
+    }
+
+    .navList ul li a {
+        font-size: 28px;
+    }
+
+    .active::before,
+    .active::after {
+        position: absolute;
+        top: unset;
+        left: unset;
+        bottom: 5px;
+        height: 2px;
+    }
+
+    .active::before {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        background-color: var(--color-white);
+    }
+    .active::after {
+        right: 18%;
+        background-color: var(--color-blue);
+        width: 20px;
+    }
+}

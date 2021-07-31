@@ -1,12 +1,15 @@
-import { Route, Switch } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import Greeting from './pages/Greeting/Greeting';
 import Home from './pages/Home/Home';
 import Layout from '@components/layout/Layout';
 
-const MobileStore = () => {
+const MobileStore: React.FC = () => {
+    const location = useLocation();
+
     return (
-        <>
-            <Switch>
+        <AnimatePresence exitBeforeEnter>
+            <Switch location={location}>
                 <Route path="/" exact>
                     <Greeting />
                 </Route>
@@ -16,7 +19,7 @@ const MobileStore = () => {
                     </Route>
                 </Layout>
             </Switch>
-        </>
+        </AnimatePresence>
     );
 };
 

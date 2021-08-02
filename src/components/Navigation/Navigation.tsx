@@ -13,7 +13,7 @@ const Navigation: React.FC = () => {
         <nav className={styles.nav}>
             <div className={styles.logo}>
                 <NavLink to="/home">
-                    M.<span>S</span>.
+                    Mobile<span> Store</span>
                 </NavLink>
             </div>
             <div onClick={handleBar} className={styles.barBox}>

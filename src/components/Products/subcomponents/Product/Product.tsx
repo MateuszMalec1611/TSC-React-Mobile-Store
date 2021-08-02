@@ -1,15 +1,20 @@
+import { useHistory } from 'react-router-dom';
 import styles from './Product.module.css';
 
 export interface ProductProps {
     name: string;
-    description: string;
     img: string;
     price: number;
 }
 
-const Product: React.FC<ProductProps> = ({ name, img, description, price }) => {
+const Product: React.FC<ProductProps> = ({ name, img, price }) => {
+    const history = useHistory();
+    console.log(name);
+
+    const handleProductDetail = () => history.push(`/product/${name.trim()}`);
+
     return (
-        <li className={styles.product}>
+        <li onClick={handleProductDetail} className={styles.product}>
             <div>
                 <article>
                     <h4>{name}</h4>

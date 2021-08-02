@@ -1,6 +1,6 @@
 @import url('../../css/colors.css');
 
-.greeting {
+.startingPage {
     display: flex;
     align-items: center;
     height: 100vh;
@@ -18,28 +18,28 @@
     z-index: -1;
 }
 
-.greeting section {
+.startingPage section {
     padding: 20px;
     margin: auto;
     text-align: center;
 }
-.greeting span {
+.startingPage span {
     color: var(--color-blue);
 }
 
-.greeting h1 {
+.startingPage h1 {
     font-size: 42px;
     font-family: 'Merriweather', serif;
 }
 
-.greeting h3 {
+.startingPage h3 {
     margin-top: 10px;
     margin-bottom: 24px;
     font-size: 22px;
     font-weight: normal;
 }
 
-.greeting button {
+.startingPage button {
     padding: 7px 12px;
     text-transform: uppercase;
     background-color: transparent;
@@ -51,21 +51,21 @@
     transition: background-color 0.2s 0.2s, transform 0.3s;
 }
 
-.greeting button:hover {
+.startingPage button:hover {
     background-color: var(--color-blue);
     transform: scale(0.98);
 }
 
 @media (min-width: 768px) {
-    .greeting h1 {
+    .startingPage h1 {
         font-size: 60px;
     }
 
-    .greeting h3 {
+    .startingPage h3 {
         font-size: 24px;
     }
 
-    .greeting button {
+    .startingPage button {
         font-size: 22px;
     }
 }

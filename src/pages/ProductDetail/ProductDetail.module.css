@@ -19,10 +19,32 @@
     margin-top: 10px;
 }
 
+.productDetail article:nth-last-child(2) {
+    margin-bottom: 24px;
+}
+
 .productDetail article h4 {
     font-size: 24px;
 }
 
 .productDetail article p {
     color: var(--color-blue);
+}
+
+@media (min-width: 768px) {
+    .productDetail h2 {
+        font-size: 48px;
+    }
+
+    .productDetail article {
+        margin-top: 18px;
+    }
+
+    .productDetail article h4 {
+        font-size: 33px;
+    }
+
+    .productDetail article p {
+        font-size: 23px;
+    }
 }

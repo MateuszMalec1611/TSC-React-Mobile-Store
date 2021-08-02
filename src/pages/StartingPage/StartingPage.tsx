@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import pageTransitionFM from '@pages/pageTransition';
-import styles from './Greeting.module.css';
+import styles from './StartingPage.module.css';
 import '../../css/animations.css';
 
 const Greeting: React.FC = () => {
@@ -10,7 +10,7 @@ const Greeting: React.FC = () => {
     const handleRedirect = () => history.push('/home');
 
     return (
-        <motion.header {...pageTransitionFM} className={styles.greeting}>
+        <motion.header {...pageTransitionFM} className={styles.startingPage}>
             <div className={styles.heroImage}></div>
             <section>
                 <h1 className="slideInR">

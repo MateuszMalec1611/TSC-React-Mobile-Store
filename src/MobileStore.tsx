@@ -1,6 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import Greeting from './pages/Greeting/Greeting';
+import Greeting from './pages/StartingPage/StartingPage';
 import Home from './pages/Home/Home';
 import Layout from '@components/layout/Layout';
 import ProductDetail from '@pages/ProductDetail/ProductDetail';

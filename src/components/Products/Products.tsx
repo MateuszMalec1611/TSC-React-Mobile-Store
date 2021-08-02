@@ -1,20 +1,24 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootStore } from '@store/Store';
+import { GetProducts } from '@store/Services/MobileStore.services';
 import Product from './subcomponents/Product/Product';
-import styles from './Products.module.css'
-
-const procuct = [
-    {
-        name: `Iphone11`,
-        price: 699,
-        description: `The iPhone 11 succeeds the iPhone XR, and it features a 6.1-inch LCD display that Apple calls a "Liquid Retina HD Display.`,
-        img: `https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/IPhone_11_White.svg/299px-IPhone_11_White.svg.png`,
-        id: 1,
-    },
-];
+import styles from './Products.module.css';
 
 const Products: React.FC = () => {
-    const productsList = procuct.map(p => <Product key={p.id} {...p} />);
+    const dispatch = useDispatch();
+    const products = useSelector((state: RootStore) => state.products.products);
+    useEffect(() => {
+        dispatch(GetProducts());
+    }, [dispatch]);
 
-    return <ul className={styles.products}>{productsList}</ul>;
+    const productsList = products?.map(product => <Product key={product.id} {...product} />);
+
+    return (
+        <>
+            <ul className={styles.products}>{productsList}</ul>
+        </>
+    );
 };
 
 export default Products;

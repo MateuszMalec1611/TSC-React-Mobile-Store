@@ -9,7 +9,6 @@ export interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ name, img, price }) => {
     const history = useHistory();
-    console.log(name);
 
     const handleProductDetail = () => history.push(`/product/${name.trim()}`);
 

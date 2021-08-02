@@ -1,4 +1,5 @@
 import Product from './subcomponents/Product/Product';
+import styles from './Products.module.css'
 
 const procuct = [
     {
@@ -13,7 +14,7 @@ const procuct = [
 const Products: React.FC = () => {
     const productsList = procuct.map(p => <Product key={p.id} {...p} />);
 
-    return <ul>{productsList}</ul>;
+    return <ul className={styles.products}>{productsList}</ul>;
 };
 
 export default Products;

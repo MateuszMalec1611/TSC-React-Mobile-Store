@@ -1,15 +1,25 @@
-import { Products, ProductsDispatchTypes, ERROR, LOADING, GET_PRODUCTS } from '../Actions/ProductActionTypes';
+import {
+    Product,
+    ProductDetail,
+    ProductsDispatchTypes,
+    ERROR,
+    LOADING,
+    GET_PRODUCTS,
+    GET_PRODUCT_DETAIL,
+} from '../Actions/MobileStore.actions';
 
 interface DefaultState {
     loading: boolean;
-    products?: Products[];
+    products?: Product[];
+    productDetail?: ProductDetail;
 }
 
 const defaultState: DefaultState = {
     loading: false,
+    products: [],
 };
 
-const productsReducer = (
+const MobileStoreReducer = (
     state: DefaultState = defaultState,
     action: ProductsDispatchTypes
 ): typeof defaultState => {
@@ -27,9 +37,14 @@ const productsReducer = (
                 loading: false,
                 products: action.payload,
             };
+        case GET_PRODUCT_DETAIL:
+            return {
+                loading: false,
+                productDetail: action.payload,
+            };
+        default:
+            return state;
     }
-
-    return state;
 };
 
-export default productsReducer;
+export default MobileStoreReducer;

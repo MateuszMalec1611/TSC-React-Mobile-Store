@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import productsReducer from './Reducers/ProductsReducer';
+import MobileStoreReducer from './Reducers/MobileStore.reducer';
 
-const RootReducer = combineReducers({ products: productsReducer });
+const rootReducer = combineReducers({ products: MobileStoreReducer });
 
-export default RootReducer;
+export default rootReducer;

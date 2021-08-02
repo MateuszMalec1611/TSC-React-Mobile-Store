@@ -4,6 +4,7 @@ import Greeting from './pages/StartingPage/StartingPage';
 import Home from './pages/Home/Home';
 import Layout from '@components/layout/Layout';
 import ProductDetail from '@pages/ProductDetail/ProductDetail';
+import OrderForm from '@pages/FormOrder/FormOrder';
 
 const MobileStore: React.FC = () => {
     const location = useLocation();
@@ -20,6 +21,9 @@ const MobileStore: React.FC = () => {
                     </Route>
                     <Route path="/product/:productName">
                         <ProductDetail />
+                    </Route>
+                    <Route path="/form">
+                        <OrderForm />
                     </Route>
                 </Layout>
             </Switch>

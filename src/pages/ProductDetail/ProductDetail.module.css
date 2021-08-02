@@ -1,5 +1,9 @@
 @import url('../../css/colors.css');
 
+.productDetail {
+    margin-bottom: 10vh;
+}
+
 .productDetail h2 {
     font-size: 35px;
     margin: -40px;

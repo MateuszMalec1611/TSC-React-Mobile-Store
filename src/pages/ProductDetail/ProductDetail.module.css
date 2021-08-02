@@ -1,0 +1,24 @@
+@import url('../../css/colors.css');
+
+.productDetail h2 {
+    font-size: 35px;
+    margin: -40px;
+}
+
+.productDetail img {
+    width: 100%;
+    max-width: 500px;
+    object-fit: cover;
+}
+
+.productDetail article {
+    margin-top: 10px;
+}
+
+.productDetail article h4 {
+    font-size: 24px;
+}
+
+.productDetail article p {
+    color: var(--color-blue);
+}

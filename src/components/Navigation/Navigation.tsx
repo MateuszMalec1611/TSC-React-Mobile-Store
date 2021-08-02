@@ -23,17 +23,17 @@ const Navigation: React.FC = () => {
             <div className={navLinksClasses}>
                 <ul>
                     <li>
-                        <NavLink activeClassName={styles.active} to="/home">
+                        <NavLink onClick={handleBar} activeClassName={styles.active} to="/home">
                             H<span>o</span>me
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName={styles.active} to="/" exact>
+                        <NavLink onClick={handleBar} activeClassName={styles.active} to="/" exact>
                             P<span>r</span>oducts
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName={styles.active} to="/" exact>
+                        <NavLink onClick={handleBar} activeClassName={styles.active} to="/" exact>
                             E<span>x</span>it
                         </NavLink>
                     </li>

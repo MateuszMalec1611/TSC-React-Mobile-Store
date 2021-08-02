@@ -1,5 +1,3 @@
-import { GetProductDetail } from '@store/Services/MobileStore.services';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styles from './Product.module.css';
 
@@ -12,12 +10,8 @@ export interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ name, img, price, id }) => {
     const history = useHistory();
-    const dispatch = useDispatch();
 
-    const handleProductDetail = () => {
-        dispatch(GetProductDetail(id));
-        history.push(`/product/${id}`);
-    };
+    const handleProductDetail = () => history.push(`/product/${id}`);
 
     return (
         <li onClick={handleProductDetail} className={styles.product}>

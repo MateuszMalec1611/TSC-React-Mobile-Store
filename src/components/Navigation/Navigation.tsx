@@ -5,6 +5,11 @@ import styles from './Navigation.module.css';
 const Navigation: React.FC = () => {
     const [isActive, setIsActive] = useState(false);
 
+    if (isActive) {
+        document.body.style.overflow = 'hidden';
+    }else {
+        document.body.style.overflow = 'unset';
+    }
     const handleBar = () => setIsActive(prev => !prev);
 
     const navBarClasses = isActive ? `${styles.bar} ${styles['bar--active']}` : `${styles.bar}`;
@@ -28,8 +33,8 @@ const Navigation: React.FC = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={handleBar} activeClassName={styles.active} to="/" exact>
-                            P<span>r</span>oducts
+                        <NavLink onClick={handleBar} activeClassName={styles.active} to="/profile">
+                            P<span>r</span>ofile
                         </NavLink>
                     </li>
                     <li>

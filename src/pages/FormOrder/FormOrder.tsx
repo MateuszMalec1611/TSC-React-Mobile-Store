@@ -49,6 +49,7 @@ const OrderForm: React.FC = () => {
     const emailError = handleEmailError && <p>Please enter a valid Email!</p>;
     const cityError = handleCityError && <p>Please enter a valid City!</p>;
     const postalError = handlePostalError && <p>Please enter a valid Postal Code!</p>;
+    const buttonInfo = !isFormValid && <p>Please fill all required fields (*)</p>;
     return (
         <motion.div {...pageTransitionFM} className={styles.formOrder}>
             <article>
@@ -57,7 +58,7 @@ const OrderForm: React.FC = () => {
             </article>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="fullname">
-                    Full Name
+                    *Full Name
                     <input
                         onBlur={handleNameIsTouched}
                         onChange={handleNameValue}
@@ -68,7 +69,7 @@ const OrderForm: React.FC = () => {
                     {nameError}
                 </label>
                 <label htmlFor="email">
-                    Email
+                    *Email
                     <input
                         onBlur={handleEmailIsTouched}
                         onChange={handleEmailValue}
@@ -79,7 +80,7 @@ const OrderForm: React.FC = () => {
                     {emailError}
                 </label>
                 <label htmlFor="city">
-                    City
+                    *City
                     <input
                         onBlur={handleCityIsTouched}
                         onChange={handleCityValue}
@@ -90,7 +91,7 @@ const OrderForm: React.FC = () => {
                     {cityError}
                 </label>
                 <label htmlFor="postalCode">
-                    Postal Code
+                    *Postal Code
                     <input
                         onBlur={handlePostalIsTouched}
                         onChange={handlePostalValue}
@@ -101,6 +102,7 @@ const OrderForm: React.FC = () => {
                     {postalError}
                 </label>
                 <Button isDisabled={!isFormValid}>Submit</Button>
+                {buttonInfo}
             </form>
         </motion.div>
     );

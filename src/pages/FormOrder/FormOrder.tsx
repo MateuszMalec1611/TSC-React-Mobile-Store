@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
 import styles from './FormOrder.module.css';
 export interface OrderFormProps {}
@@ -10,7 +12,7 @@ const OrderForm: React.FC<OrderFormProps> = () => {
     };
 
     return (
-        <div className={styles.formOrder}>
+        <motion.div {...pageTransitionFM} className={styles.formOrder}>
             <article>
                 <p>Your're ordering</p>
                 <h2>Iphone11</h2>
@@ -34,7 +36,7 @@ const OrderForm: React.FC<OrderFormProps> = () => {
                 </label>
                 <Button>Submit</Button>
             </form>
-        </div>
+        </motion.div>
     );
 };
 

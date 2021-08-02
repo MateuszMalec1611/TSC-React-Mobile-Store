@@ -4,10 +4,12 @@ import { RootStore } from '@store/Store';
 import { GetProducts } from '@store/Services/MobileStore.services';
 import Product from './subcomponents/Product/Product';
 import styles from './Products.module.css';
+import Loader from '@components/Ui/Loader/Loader';
 
 const Products: React.FC = () => {
     const dispatch = useDispatch();
     const products = useSelector((state: RootStore) => state.products.products);
+    const loading = useSelector((state: RootStore) => state.products.loading);
     useEffect(() => {
         dispatch(GetProducts());
     }, [dispatch]);
@@ -16,7 +18,7 @@ const Products: React.FC = () => {
 
     return (
         <>
-            <ul className={styles.products}>{productsList}</ul>
+            <ul className={styles.products}>{loading ? <Loader /> : productsList}</ul>
         </>
     );
 };

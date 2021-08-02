@@ -22,7 +22,7 @@ const MobileStore: React.FC = () => {
                     <Route path="/product/:productName">
                         <ProductDetail />
                     </Route>
-                    <Route path="/form">
+                    <Route path="/form/:productName">
                         <OrderForm />
                     </Route>
                 </Layout>

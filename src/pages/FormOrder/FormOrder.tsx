@@ -1,4 +1,6 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { ParamTypes } from '@pages/ProductDetail/ProductDetail';
 import { motion } from 'framer-motion';
 import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
@@ -9,6 +11,8 @@ const emialRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const OrderForm: React.FC = () => {
+    const { productName } = useParams<ParamTypes>();
+
     const {
         value: nameValue,
         handleValue: handleNameValue,
@@ -54,7 +58,7 @@ const OrderForm: React.FC = () => {
         <motion.div {...pageTransitionFM} className={styles.formOrder}>
             <article>
                 <p>Your're ordering</p>
-                <h2>Iphone11</h2>
+                <h2>{productName}</h2>
             </article>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="fullname">

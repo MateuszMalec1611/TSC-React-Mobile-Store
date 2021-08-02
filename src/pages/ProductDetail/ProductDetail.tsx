@@ -7,7 +7,7 @@ import Button from '@components/Ui/Button/Button';
 import styles from './ProductDetail.module.css';
 import { useEffect } from 'react';
 import { GetProductDetail } from '@store/Services/MobileStore.services';
-interface ParamTypes {
+export interface ParamTypes {
     productName: string;
 }
 
@@ -21,7 +21,7 @@ const ProductDetail: React.FC = () => {
         dispatch(GetProductDetail(productName));
     }, [dispatch, productName]);
 
-    const handleForm = () => history.push('/form');
+    const handleForm = () => history.push(`/form/${productName}`);
 
     return (
         <motion.div {...pageTransitionFM} className={styles.productDetail}>

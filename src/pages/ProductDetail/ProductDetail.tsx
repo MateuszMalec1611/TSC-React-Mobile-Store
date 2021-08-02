@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { RootStore } from '@store/Store';
@@ -14,11 +14,14 @@ interface ParamTypes {
 const ProductDetail: React.FC = () => {
     const { productName } = useParams<ParamTypes>();
     const dispatch = useDispatch();
+    const history = useHistory();
     const product = useSelector((state: RootStore) => state.products.productDetail);
 
     useEffect(() => {
         dispatch(GetProductDetail(productName));
     }, [dispatch, productName]);
+
+    const handleForm = () => history.push('/form');
 
     return (
         <motion.div {...pageTransitionFM} className={styles.productDetail}>
@@ -40,7 +43,7 @@ const ProductDetail: React.FC = () => {
                 <h4>RAM</h4>
                 <p>{product?.ram}</p>
             </article>
-            <Button>Order</Button>
+            <Button click={handleForm}>Order</Button>
         </motion.div>
     );
 };

@@ -1,0 +1,54 @@
+@import url('../../css/colors.css');
+
+.formOrder,
+.formOrder form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.formOrder form {
+    margin-top: 30px;
+}
+
+.formOrder article p {
+    font-size: 30px;
+}
+.formOrder article h2 {
+    color: var(--color-blue);
+}
+
+.formOrder form label {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 24px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.formOrder form label:nth-child(1) {
+    margin-top: unset;
+}
+
+.formOrder form input {
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 22px;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    border-radius: 10px;
+}
+
+.formOrder form input:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.formOrder form button {
+    margin-top: 50px;
+}

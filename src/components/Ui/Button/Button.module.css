@@ -15,6 +15,10 @@
     background-color: var(--color-blue);
 }
 
+.button:disabled {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
 @media (min-width: 768px) {
     .button {
         font-size: 24px;

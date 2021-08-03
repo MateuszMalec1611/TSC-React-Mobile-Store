@@ -7,6 +7,7 @@ import {
     ERROR,
     GET_PRODUCTS,
     GET_PRODUCT_DETAIL,
+    SENT_ORDER,
 } from '../Actions/MobileStore.actions';
 
 export const GetProducts = () => async (dispatch: Dispatch<ProductsDispatchTypes>) => {
@@ -19,7 +20,7 @@ export const GetProducts = () => async (dispatch: Dispatch<ProductsDispatchTypes
         data.shift();
         dispatch({ type: GET_PRODUCTS, payload: data });
     } catch (error) {
-        dispatch({ type: ERROR });
+        dispatch({ type: ERROR, payload: error });
         alert(error);
     }
 };
@@ -32,21 +33,19 @@ export const GetProductDetail = (product: string) => async (dispatch: Dispatch<P
 
         dispatch({ type: GET_PRODUCT_DETAIL, payload: data });
     } catch (error) {
-        dispatch({ type: ERROR });
+        dispatch({ type: ERROR, payload: error });
         alert(error);
     }
 };
 export const SendProduct = (product: OrderedProduct) => async (dispatch: Dispatch<ProductsDispatchTypes>) => {
     try {
         dispatch({ type: LOADING });
-        const smth = await api().post(`/user/ordered-products.json`, product);
-        console.log(smth);
+        const { status } = await api().post(`/user/ordered-products.json`, product);
 
-     
+        if (status !== 200) throw new Error('Failed to send order');
 
-        // dispatch({ type: GET_PRODUCT_DETAIL, payload: data });
+        dispatch({ type: SENT_ORDER, payload: true });
     } catch (error) {
-        dispatch({ type: ERROR });
-        alert(error);
+        dispatch({ type: ERROR, payload: error });
     }
 };

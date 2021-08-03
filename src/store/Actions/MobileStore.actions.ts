@@ -3,7 +3,7 @@ export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
 export const IS_ORDERING = 'IS_ORDERING';
 export const LOADING = 'LOADING';
-export const SEND_ORDER = 'SEND_ORDER';
+export const SENT_ORDER = 'SENT_ORDER';
 
 export type Product = {
     id: string;
@@ -21,6 +21,7 @@ export interface OrderedProduct extends Product {
 }
 export interface Error {
     type: typeof ERROR;
+    payload: string;
 }
 export interface GetProducts {
     type: typeof GET_PRODUCTS;
@@ -37,10 +38,9 @@ export interface IsOrdering {
 export interface Loading {
     type: typeof LOADING;
 }
-
-export interface SendOrder {
-    type: typeof SEND_ORDER;
-    payload: OrderedProduct;
+export interface SentOrder {
+    type: typeof SENT_ORDER;
+    payload: boolean;
 }
 
-export type ProductsDispatchTypes = Error | GetProducts | GetProductDetail | IsOrdering | Loading | SendOrder;
+export type ProductsDispatchTypes = Error | GetProducts | GetProductDetail | IsOrdering | Loading | SentOrder;

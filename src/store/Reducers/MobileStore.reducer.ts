@@ -7,21 +7,24 @@ import {
     GET_PRODUCT_DETAIL,
     IS_ORDERING,
     LOADING,
+    SENT_ORDER,
 } from '../Actions/MobileStore.actions';
 
 interface DefaultState {
-    loading: boolean;
     products?: Product[];
     productDetail?: ProductDetail;
-    sent: boolean;
     isOrdering: boolean;
+    loading: boolean;
+    sent: boolean;
+    error: string;
 }
 
 const defaultState: DefaultState = {
-    loading: false,
     products: [],
-    sent: false,
     isOrdering: false,
+    loading: false,
+    sent: false,
+    error: '',
 };
 
 const MobileStoreReducer = (
@@ -55,6 +58,12 @@ const MobileStoreReducer = (
             return {
                 ...state,
                 loading: true,
+            };
+        case SENT_ORDER:
+            return {
+                ...state,
+                loading: false,
+                sent: action.payload,
             };
         default:
             return state;

@@ -105,7 +105,7 @@ const OrderForm: React.FC = () => {
                     />
                     {postalError}
                 </label>
-                <Button isDisabled={!isFormValid}>Submit</Button>
+                <Button isDisabled={!isFormValid}>buy</Button>
                 {buttonInfo}
             </form>
         </motion.div>

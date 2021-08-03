@@ -1,8 +1,9 @@
 @import url('../../../../css/colors.css');
 
 .product {
-    margin-top: 20px;
+    margin: 20px;
     width: 100%;
+    min-width: 300px;
     max-width: 500px;
     border-radius: 4px;
     box-shadow: 1px 1px 5px black;

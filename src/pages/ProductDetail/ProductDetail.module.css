@@ -5,14 +5,15 @@
 }
 
 .productDetail h2 {
-    font-size: 35px;
     margin: -40px;
+    font-size: 35px;
 }
 
 .productDetail img {
+    margin-top: 40px;
     width: 100%;
     max-width: 500px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .productDetail article {

@@ -5,10 +5,12 @@ import styles from './Navigation.module.css';
 const Navigation: React.FC = () => {
     const [isActive, setIsActive] = useState(false);
 
-    if (isActive) {
-        document.body.style.overflow = 'hidden';
-    }else {
-        document.body.style.overflow = 'unset';
+    if (window.innerWidth < 768) {
+        if (isActive) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
     }
     const handleBar = () => setIsActive(prev => !prev);
 

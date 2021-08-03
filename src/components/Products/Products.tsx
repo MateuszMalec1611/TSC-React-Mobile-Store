@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from '@store/Store';
 import { GetProducts } from '@store/Services/MobileStore.services';
 import Product from './subcomponents/Product/Product';
-import styles from './Products.module.css';
 import Loader from '@components/Ui/Loader/Loader';
+import styles from './Products.module.css';
 
 const Products: React.FC = () => {
     const dispatch = useDispatch();

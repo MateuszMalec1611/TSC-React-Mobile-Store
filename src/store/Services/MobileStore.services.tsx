@@ -2,6 +2,7 @@ import api from '@api';
 import { Dispatch } from 'redux';
 import {
     ProductsDispatchTypes,
+    OrderedProduct,
     LOADING,
     ERROR,
     GET_PRODUCTS,
@@ -30,6 +31,20 @@ export const GetProductDetail = (product: string) => async (dispatch: Dispatch<P
         if (!data) throw new Error('Something went wrong');
 
         dispatch({ type: GET_PRODUCT_DETAIL, payload: data });
+    } catch (error) {
+        dispatch({ type: ERROR });
+        alert(error);
+    }
+};
+export const SendProduct = (product: OrderedProduct) => async (dispatch: Dispatch<ProductsDispatchTypes>) => {
+    try {
+        dispatch({ type: LOADING });
+        const smth = await api().post(`/user/ordered-products.json`, product);
+        console.log(smth);
+
+     
+
+        // dispatch({ type: GET_PRODUCT_DETAIL, payload: data });
     } catch (error) {
         dispatch({ type: ERROR });
         alert(error);

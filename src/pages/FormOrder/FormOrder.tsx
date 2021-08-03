@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ParamTypes } from '@pages/ProductDetail/ProductDetail';
 import { motion } from 'framer-motion';
+import { RootStore } from '@store/Store';
+import { GetProducts } from '@store/Services/MobileStore.services';
 import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
 import styles from './FormOrder.module.css';
@@ -12,6 +15,13 @@ const emialRegex =
 
 const OrderForm: React.FC = () => {
     const { productName } = useParams<ParamTypes>();
+    const dispatch = useDispatch();
+    const products = useSelector((state: RootStore) => state.mobileStore.products);
+    console.log(products);
+
+    useEffect(() => {
+        if (products?.length === 0) dispatch(GetProducts());
+    }, [dispatch, products]);
 
     const {
         value: nameValue,

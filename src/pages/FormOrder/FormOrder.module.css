@@ -9,7 +9,7 @@
 }
 
 .formOrder form {
-    margin-top: 30px;
+    margin: 30px;
 }
 
 .formOrder article p {
@@ -62,4 +62,25 @@
 .formOrder form p {
     margin-bottom: 10px;
     color: var(--color-blue);
+}
+
+.success {
+    margin-bottom: 20px;
+    color: var(--color-blue);
+    font-size: 26px;
+}
+
+.fail {
+    font-size: 23px;
+    color: tomato;
+}
+
+@media (min-width: 768px) {
+    .success {
+        font-size: 36px;
+    }
+
+    .fail {
+        font-size: 33px;
+    }
 }

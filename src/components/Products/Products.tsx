@@ -8,8 +8,7 @@ import Loader from '@components/Ui/Loader/Loader';
 
 const Products: React.FC = () => {
     const dispatch = useDispatch();
-    const products = useSelector((state: RootStore) => state.products.products);
-    const loading = useSelector((state: RootStore) => state.products.loading);
+    const { products, loading } = useSelector((state: RootStore) => state.mobileStore);
     useEffect(() => {
         dispatch(GetProducts());
     }, [dispatch]);

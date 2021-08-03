@@ -3,20 +3,28 @@ import {
     ProductDetail,
     ProductsDispatchTypes,
     ERROR,
-    LOADING,
     GET_PRODUCTS,
     GET_PRODUCT_DETAIL,
+    IS_ORDERING,
+    LOADING,
+    SENT_ORDER,
 } from '../Actions/MobileStore.actions';
 
 interface DefaultState {
-    loading: boolean;
     products?: Product[];
     productDetail?: ProductDetail;
+    isOrdering: boolean;
+    loading: boolean;
+    sent: boolean;
+    error: string;
 }
 
 const defaultState: DefaultState = {
-    loading: false,
     products: [],
+    isOrdering: false,
+    loading: false,
+    sent: false,
+    error: '',
 };
 
 const MobileStoreReducer = (
@@ -26,21 +34,36 @@ const MobileStoreReducer = (
     switch (action.type) {
         case ERROR:
             return {
+                ...state,
                 loading: false,
-            };
-        case LOADING:
-            return {
-                loading: true,
             };
         case GET_PRODUCTS:
             return {
+                ...state,
                 loading: false,
                 products: action.payload,
             };
         case GET_PRODUCT_DETAIL:
             return {
+                ...state,
                 loading: false,
                 productDetail: action.payload,
+            };
+        case IS_ORDERING:
+            return {
+                ...state,
+                isOrdering: action.payload,
+            };
+        case LOADING:
+            return {
+                ...state,
+                loading: true,
+            };
+        case SENT_ORDER:
+            return {
+                ...state,
+                loading: false,
+                sent: action.payload,
             };
         default:
             return state;

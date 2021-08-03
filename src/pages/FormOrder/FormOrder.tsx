@@ -61,7 +61,8 @@ const OrderForm: React.FC = () => {
         const product = products!.find(product => product.id === productName);
         const date = new Date().toLocaleString(undefined, { dateStyle: 'full', timeStyle: 'long' });
 
-        const orderedProduct = { ...product!, date };
+        const userData = { name: nameValue, email: emailValue, city: cityValue, postalCode: postalValue };
+        const orderedProduct = { productInfo: { ...product! }, userData: { ...userData, date } };
 
         dispatch(SendProduct(orderedProduct));
     };

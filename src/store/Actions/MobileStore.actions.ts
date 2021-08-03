@@ -11,14 +11,22 @@ export type Product = {
     name: string;
     price: number;
 };
+export type UserData = {
+    city: string;
+    date: string;
+    email: string;
+    name: string;
+    postalCode: string;
+};
 export interface ProductDetail extends Product {
     display: string;
     processor: string;
     ram: string;
 }
-export interface OrderedProduct extends Product {
-    date: string;
-}
+export type OrderedProduct = {
+    productInfo: Product;
+    userData: UserData;
+};
 export interface Error {
     type: typeof ERROR;
     payload: string;

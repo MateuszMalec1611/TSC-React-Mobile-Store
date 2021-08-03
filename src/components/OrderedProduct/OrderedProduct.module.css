@@ -1,0 +1,64 @@
+@import url('../../css/colors.css');
+
+.orderedProduct {
+    padding: 30px 0;
+    background-color: #292828;
+    border-radius: 10px;
+}
+
+.orderedProduct img {
+    width: 50px;
+}
+
+.titleDetail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleDetail h3 {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.titleDetail p {
+    color: var(--color-blue);
+}
+
+.orderedProduct article {
+    margin: 14px 0;
+}
+
+.orderedProduct article h4 {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .orderedProduct {
+        display: flex;
+        justify-content: center;
+        text-align: left;
+        max-width: 650px;
+    }
+
+    .orderedProduct img {
+        margin-right: 50px;
+        height: 300px;
+        width: max-content;
+    }
+
+    .titleDetail {
+        justify-content: flex-start;
+    }
+
+    .orderedProduct article h4 {
+        font-size: 20px;
+    }
+
+    .orderedProduct article p {
+        font-size: 18px;
+    }
+    
+}
+
+

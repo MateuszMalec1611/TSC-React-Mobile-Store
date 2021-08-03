@@ -24,7 +24,7 @@ const ProductDetail: React.FC = () => {
 
     const handleForm = () => {
         dispatch({ type: IS_ORDERING, payload: true });
-        history.push(`/form/${productName}`);
+        history.push(`/ordering/${productName}`);
     };
 
     return (

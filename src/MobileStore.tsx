@@ -1,16 +1,21 @@
 import { AnimatePresence } from 'framer-motion';
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from '@store/Store';
-import StartingPage from './pages/StartingPage/StartingPage';
-import Home from './pages/Home/Home';
+import { IS_ORDERING } from '@store/Actions/MobileStore.actions';
+import Home from '@pages/Home/Home';
 import Layout from '@components/layout/Layout';
-import ProductDetail from '@pages/ProductDetail/ProductDetail';
 import OrderForm from '@pages/FormOrder/FormOrder';
+import ProductDetail from '@pages/ProductDetail/ProductDetail';
+import StartingPage from '@pages/StartingPage/StartingPage';
 
 const MobileStore: React.FC = () => {
     const location = useLocation();
+    const dispatch = useDispatch();
     const isOrdering = useSelector((state: RootStore) => state.mobileStore.isOrdering);
+
+    const pathName = location.pathname;
+    if (pathName.search('/ordering') === -1) dispatch({ type: IS_ORDERING, payload: false });
 
     return (
         <AnimatePresence exitBeforeEnter>
@@ -25,7 +30,7 @@ const MobileStore: React.FC = () => {
                     <Route path="/product/:productName">
                         <ProductDetail />
                     </Route>
-                    <Route path="/form/:productName">
+                    <Route path="/ordering/:productName">
                         {isOrdering ? <OrderForm /> : <Redirect to="/home" />}
                     </Route>
                     <Route path="*">

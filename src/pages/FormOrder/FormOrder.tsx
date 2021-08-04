@@ -5,6 +5,7 @@ import { ParamTypes } from '@pages/ProductDetail/ProductDetail';
 import { motion } from 'framer-motion';
 import { RootStore } from '@store/Store';
 import { GetData, SendProduct } from '@store/MobileStore/MobileStore.services';
+import { UpdateUser } from '@store/User/User.services';
 import { GET_PRODUCTS, SENT_ORDER } from '@store/MobileStore/MobileStore.actions';
 import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
@@ -65,6 +66,7 @@ const OrderForm: React.FC = () => {
         const orderedProduct = { id: 'any', productInfo: { ...product! }, userData: { ...userData, date } };
 
         dispatch(SendProduct(orderedProduct));
+        dispatch(UpdateUser(product!.price, 1, 'add'));
     };
 
     const handleClose = () => history.replace('/home');

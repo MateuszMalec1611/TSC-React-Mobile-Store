@@ -21,6 +21,7 @@ const OrderForm: React.FC = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { products, loading, sent: isSent, error } = useSelector((state: RootStore) => state.mobileStore);
+    const { totalAmount, quantityOfOrders } = useSelector((state: RootStore) => state.user);
 
     useEffect(() => {
         if (products?.length === 0) dispatch(GetData(`/products-header`, GET_PRODUCTS));
@@ -65,8 +66,11 @@ const OrderForm: React.FC = () => {
         const userData = { name: nameValue, email: emailValue, city: cityValue, postalCode: postalValue };
         const orderedProduct = { id: 'any', productInfo: { ...product! }, userData: { ...userData, date } };
 
+        const newTotalAmount = totalAmount + product!.price;
+        const newQuantityOfOrders = quantityOfOrders + 1;
+
         dispatch(SendProduct(orderedProduct));
-        dispatch(UpdateUser(product!.price, 1, 'add'));
+        dispatch(UpdateUser(newTotalAmount, newQuantityOfOrders));
     };
 
     const handleClose = () => history.replace('/home');

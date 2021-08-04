@@ -3,7 +3,7 @@ export const UPDATE_TOTAL_AMOUNT = 'UPDATE_TOTAL_AMOUNT';
 
 export type Details = {
     totalAmount: number;
-    quantityOfOrers: number;
+    quantityOfOrders: number;
 };
 
 interface GetUserData {

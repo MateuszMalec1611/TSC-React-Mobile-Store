@@ -2,12 +2,12 @@ import { GET_USER_DATA, UPDATE_TOTAL_AMOUNT, UserDispatchTypes } from './User.ac
 
 interface DefaultState {
     totalAmount: number;
-    quantityOfOrers: number;
+    quantityOfOrders: number;
 }
 
 const defaultState: DefaultState = {
     totalAmount: 0,
-    quantityOfOrers: 0,
+    quantityOfOrders: 0,
 };
 
 const UserReducer = (state: DefaultState = defaultState, action: UserDispatchTypes): typeof defaultState => {
@@ -15,11 +15,12 @@ const UserReducer = (state: DefaultState = defaultState, action: UserDispatchTyp
         case GET_USER_DATA:
             return {
                 totalAmount: action.payload.totalAmount ?? 0,
-                quantityOfOrers: action.payload.quantityOfOrers ?? 0,
+                quantityOfOrders: action.payload.quantityOfOrders ?? 0,
             };
         case UPDATE_TOTAL_AMOUNT:
             return {
-                ...state,
+                totalAmount: action.payload.totalAmount ?? 0,
+                quantityOfOrders: action.payload.quantityOfOrders ?? 0,
             };
         default:
             return state;

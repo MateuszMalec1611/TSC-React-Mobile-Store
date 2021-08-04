@@ -8,7 +8,7 @@ export interface UserDetailsProps {}
 
 const UserDetails: React.FC<UserDetailsProps> = () => {
     const dispatch = useDispatch();
-    const { totalAmount, quantityOfOrers } = useSelector((state: RootStore) => state.user);
+    const { totalAmount, quantityOfOrders } = useSelector((state: RootStore) => state.user);
 
     useEffect(() => {
         dispatch(GetUserData());
@@ -22,7 +22,7 @@ const UserDetails: React.FC<UserDetailsProps> = () => {
             </article>
             <article>
                 <h4>Number of orders</h4>
-                <p>{quantityOfOrers}</p>
+                <p>{quantityOfOrders}</p>
             </article>
         </div>
     );

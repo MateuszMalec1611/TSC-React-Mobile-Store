@@ -5,6 +5,7 @@ import Button from '@components/Ui/Button/Button';
 import styles from './OrderedProduct.module.css';
 import Loader from '@components/Ui/Loader/Loader';
 import { CancelOrder } from '@store/MobileStore/MobileStore.services';
+import { UpdateUser } from '@store/User/User.services';
 
 export interface OrderedProductProps {
     id: string;
@@ -14,10 +15,17 @@ export interface OrderedProductProps {
 
 const OrderedProduct: React.FC<OrderedProductProps> = ({ id, productInfo, userData }) => {
     const loading = useSelector((state: RootStore) => state.mobileStore.loading);
+    const { totalAmount, quantityOfOrders } = useSelector((state: RootStore) => state.user);
     const dispatch = useDispatch();
     const date = userData.date.slice(0, 32);
 
-    const handleCancelOrder = () => dispatch(CancelOrder(id));
+    const handleCancelOrder = () => {
+        const newTotalAmount = totalAmount - productInfo.price;
+        const newQuantityOfOrders = quantityOfOrders - 1;
+
+        dispatch(CancelOrder(id));
+        dispatch(UpdateUser(newTotalAmount, newQuantityOfOrders));
+    };
 
     const orderedProduct = (
         <>

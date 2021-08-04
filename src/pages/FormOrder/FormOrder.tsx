@@ -5,6 +5,7 @@ import { ParamTypes } from '@pages/ProductDetail/ProductDetail';
 import { motion } from 'framer-motion';
 import { RootStore } from '@store/Store';
 import { GetData, SendProduct } from '@store/MobileStore/MobileStore.services';
+import { UpdateUser } from '@store/User/User.services';
 import { GET_PRODUCTS, SENT_ORDER } from '@store/MobileStore/MobileStore.actions';
 import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
@@ -20,6 +21,7 @@ const OrderForm: React.FC = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { products, loading, sent: isSent, error } = useSelector((state: RootStore) => state.mobileStore);
+    const { totalAmount, quantityOfOrders } = useSelector((state: RootStore) => state.user);
 
     useEffect(() => {
         if (products?.length === 0) dispatch(GetData(`/products-header`, GET_PRODUCTS));
@@ -64,7 +66,11 @@ const OrderForm: React.FC = () => {
         const userData = { name: nameValue, email: emailValue, city: cityValue, postalCode: postalValue };
         const orderedProduct = { id: 'any', productInfo: { ...product! }, userData: { ...userData, date } };
 
+        const newTotalAmount = totalAmount + product!.price;
+        const newQuantityOfOrders = quantityOfOrders + 1;
+
         dispatch(SendProduct(orderedProduct));
+        dispatch(UpdateUser(newTotalAmount, newQuantityOfOrders));
     };
 
     const handleClose = () => history.replace('/home');

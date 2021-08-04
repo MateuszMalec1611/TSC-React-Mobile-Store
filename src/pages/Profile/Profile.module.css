@@ -1,0 +1,20 @@
+@import url('../../css/colors.css');
+
+.profile h2 {
+    font-size: 35px;
+}
+
+.profile h2 span {
+    color: var(--color-blue);
+}
+
+.orderedBox {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orderedBox p {
+    font-size: 20px;
+}

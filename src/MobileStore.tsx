@@ -7,6 +7,7 @@ import Layout from '@components/layout/Layout';
 import OrderForm from '@pages/FormOrder/FormOrder';
 import ProductDetail from '@pages/ProductDetail/ProductDetail';
 import StartingPage from '@pages/StartingPage/StartingPage';
+import Profile from '@pages/Profile/Profile';
 
 const MobileStore: React.FC = () => {
     const location = useLocation();
@@ -27,6 +28,9 @@ const MobileStore: React.FC = () => {
                     </Route>
                     <Route path="/ordering/:productName">
                         {isOrdering ? <OrderForm /> : <Redirect to="/home" />}
+                    </Route>
+                    <Route path="/profile">
+                        <Profile />
                     </Route>
                     <Route path="*">
                         <p>not found</p>

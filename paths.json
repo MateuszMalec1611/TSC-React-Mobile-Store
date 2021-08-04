@@ -6,7 +6,8 @@
             "@pages/*": ["pages/*"],
             "@store/*": ["store/*"],
             "@api": ["api"],
-            "@hooks/*": ["hooks/*"]
+            "@hooks/*": ["hooks/*"],
+            "@utils/*": ["utils/*"]
         }
     }
 }

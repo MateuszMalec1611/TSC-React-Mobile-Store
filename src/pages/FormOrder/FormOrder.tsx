@@ -4,13 +4,13 @@ import { useHistory, useParams } from 'react-router-dom';
 import { ParamTypes } from '@pages/ProductDetail/ProductDetail';
 import { motion } from 'framer-motion';
 import { RootStore } from '@store/Store';
-import { GetProducts, SendProduct } from '@store/Services/MobileStore.services';
-import { SENT_ORDER } from '@store/Actions/MobileStore.actions';
+import { GetData, SendProduct } from '@store/MobileStore/MobileStore.services';
+import { GET_PRODUCTS, SENT_ORDER } from '@store/MobileStore/MobileStore.actions';
 import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
-import styles from './FormOrder.module.css';
 import useForm from '@hooks/useForm';
 import Loader from '@components/Ui/Loader/Loader';
+import styles from './FormOrder.module.css';
 
 const emialRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -22,7 +22,7 @@ const OrderForm: React.FC = () => {
     const { products, loading, sent: isSent, error } = useSelector((state: RootStore) => state.mobileStore);
 
     useEffect(() => {
-        if (products?.length === 0) dispatch(GetProducts());
+        if (products?.length === 0) dispatch(GetData(`/products-header`, GET_PRODUCTS));
         dispatch({ type: SENT_ORDER, payload: false });
     }, [dispatch, products]);
 
@@ -61,7 +61,8 @@ const OrderForm: React.FC = () => {
         const product = products!.find(product => product.id === productName);
         const date = new Date().toLocaleString(undefined, { dateStyle: 'full', timeStyle: 'long' });
 
-        const orderedProduct = { ...product!, date };
+        const userData = { name: nameValue, email: emailValue, city: cityValue, postalCode: postalValue };
+        const orderedProduct = { id: 'any', productInfo: { ...product! }, userData: { ...userData, date } };
 
         dispatch(SendProduct(orderedProduct));
     };
@@ -79,7 +80,7 @@ const OrderForm: React.FC = () => {
     const formContext = (
         <>
             <article>
-                <p>Your're ordering</p>
+                <p>You're ordering</p>
                 <h2>{productName}</h2>
             </article>
             <form onSubmit={handleSubmit}>

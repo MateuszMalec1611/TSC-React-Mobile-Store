@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { RootStore } from '@store/Store';
 import pageTransitionFM from '@pages/pageTransition';
-import { GetProductDetail } from '@store/Services/MobileStore.services';
-import { IS_ORDERING } from '@store/Actions/MobileStore.actions';
+import { GetData } from '@store/MobileStore/MobileStore.services';
+import { GET_PRODUCT_DETAIL, IS_ORDERING } from '@store/MobileStore/MobileStore.actions';
 import Button from '@components/Ui/Button/Button';
 import styles from './ProductDetail.module.css';
 export interface ParamTypes {
@@ -19,7 +19,7 @@ const ProductDetail: React.FC = () => {
     const product = useSelector((state: RootStore) => state.mobileStore.productDetail);
 
     useEffect(() => {
-        dispatch(GetProductDetail(productName));
+        dispatch(GetData(`/products-description/${productName}`, GET_PRODUCT_DETAIL, false));
     }, [dispatch, productName]);
 
     const handleForm = () => {

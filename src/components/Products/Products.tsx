@@ -14,7 +14,7 @@ const Products: React.FC = () => {
         dispatch(GetData(`/products-header`, GET_PRODUCTS));
     }, [dispatch]);
 
-    const productsList = products?.map(product => <Product key={product.id} {...product} />);
+    const productsList = products.map(product => <Product key={product.id} {...product} />);
 
     return (
         <>

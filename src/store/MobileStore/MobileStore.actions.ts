@@ -1,4 +1,5 @@
 export const CANCEL_ORDER = 'CANCEL_ORDER';
+export const DISPLAY_PRODUCT = 'DISPLAY_PRODUCT';
 export const ERROR = 'ERROR';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
@@ -13,6 +14,7 @@ export type Product = {
     img: string;
     name: string;
     price: number;
+    visible?: boolean;
 };
 export type UserData = {
     city: string;
@@ -36,6 +38,10 @@ export interface ProductDetail extends Product {
 export interface CancelOrder {
     type: typeof CANCEL_ORDER;
     payload: string;
+}
+export interface DisplayProduct {
+    type: typeof DISPLAY_PRODUCT;
+    payload: Product[];
 }
 export interface Error {
     type: typeof ERROR;
@@ -67,6 +73,7 @@ export interface SentOrder {
 
 export type MobileStoreDispatchTypes =
     | CancelOrder
+    | DisplayProduct
     | Error
     | GetProducts
     | GetProductDetail

@@ -29,6 +29,7 @@ export interface ProductDetail extends Product {
     processor: string;
     ram: string;
 }
+
 //ACTIONS TYPES
 export interface Error {
     type: typeof ERROR;

@@ -1,32 +1,36 @@
+import { Product, UserData } from '@store/Actions/MobileStore.actions';
 import styles from './OrderedProduct.module.css';
 
-export interface OrderedProductProps {}
+export interface OrderedProductProps {
+    id: string;
+    productInfo: Product;
+    userData: UserData;
+}
 
-const OrderedProduct: React.FC = () => {
+const OrderedProduct: React.FC<OrderedProductProps> = ({ id, productInfo, userData }) => {
+    const date = userData.date.slice(0, 32);
+
     return (
         <div className={styles.orderedProduct}>
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/IPhone_11_White.svg/299px-IPhone_11_White.svg.png"
-                alt="Iphone11"
-            />
+            <img src={productInfo.img} alt={productInfo.name} />
             <div>
                 <article className={styles.titleDetail}>
-                    <h3>Iphone 11</h3>
-                    <p>699 $</p>
+                    <h3>{productInfo.name}</h3>
+                    <p>{productInfo.price} $</p>
                 </article>
                 <article>
                     <h4>Delivery address</h4>
-                    <p>City: Zbylitowska Góra</p>
-                    <p>Postal Code: 33-113</p>
+                    <p>City: {userData.city}</p>
+                    <p>Postal Code: {userData.postalCode}</p>
                 </article>
                 <article>
                     <h4>The recipient's details</h4>
-                    <p>Name: Mateusz Malec</p>
-                    <p>emial: m.mateusz2000@wp.pl</p>
+                    <p>Name: {userData.name}</p>
+                    <p>emial: {userData.email}</p>
                 </article>
                 <article>
                     <h4>Date of order:</h4>
-                    <p> wtorek, 3 sierpnia 2021 20:51:57</p>
+                    <p>{date}</p>
                 </article>
             </div>
         </div>

@@ -7,7 +7,7 @@ import store from './store/Store';
 import './index.css';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <React.StrictMode>
             <Provider store={store}>
                 <MobileStore />

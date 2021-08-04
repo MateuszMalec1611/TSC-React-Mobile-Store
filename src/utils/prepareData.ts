@@ -11,6 +11,6 @@ export const prepareData = (data: OrderedProduct[]) => {
             userData: value.userData,
         });
     }
-
+    
     return orderedProducts;
 };

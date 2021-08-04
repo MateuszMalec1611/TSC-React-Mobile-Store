@@ -6,20 +6,17 @@ import OrderedProduct from '@components/OrderedProduct/OrderedProduct';
 import { GetData } from '@store/MobileStore/MobileStore.services';
 import { GET_ORDERED_PRODUCTS } from '@store/MobileStore/MobileStore.actions';
 import { RootStore } from '@store/Store';
-import { prepareData } from '@utils/prepareData';
 import styles from './Profile.module.css';
 
 const Profile: React.FC = () => {
     const dispatch = useDispatch();
     const orders = useSelector((state: RootStore) => state.mobileStore.orderedProducts!);
 
-    const preparedOrders = prepareData(orders);
-
     useEffect(() => {
         dispatch(GetData('/user/ordered-products', GET_ORDERED_PRODUCTS, false));
     }, [dispatch]);
 
-    const orderedProducts = preparedOrders?.map(product => <OrderedProduct key={product.id} {...product} />);
+    const orderedProducts = orders?.map(product => <OrderedProduct key={product.id} {...product} />);
 
     return (
         <motion.div {...pageTransitionFM} className={styles.profile}>

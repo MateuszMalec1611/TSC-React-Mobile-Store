@@ -1,3 +1,4 @@
+export const CANCEL_ORDER = 'CANCEL_ORDER';
 export const ERROR = 'ERROR';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT_DETAIL = 'GET_PRODUCT_DETAIL';
@@ -21,6 +22,7 @@ export type UserData = {
     postalCode: string;
 };
 export type OrderedProduct = {
+    id: string;
     productInfo: Product;
     userData: UserData;
 };
@@ -31,6 +33,10 @@ export interface ProductDetail extends Product {
 }
 
 //ACTIONS TYPES
+export interface CancelOrder {
+    type: typeof CANCEL_ORDER;
+    payload: string;
+}
 export interface Error {
     type: typeof ERROR;
     payload: string;
@@ -60,6 +66,7 @@ export interface SentOrder {
 }
 
 export type MobileStoreDispatchTypes =
+    | CancelOrder
     | Error
     | GetProducts
     | GetProductDetail

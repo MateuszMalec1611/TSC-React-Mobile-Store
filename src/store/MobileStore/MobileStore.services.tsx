@@ -6,6 +6,7 @@ import {
     LOADING,
     ERROR,
     SENT_ORDER,
+    CANCEL_ORDER,
 } from './MobileStore.actions';
 
 export const GetData =
@@ -13,11 +14,11 @@ export const GetData =
     async (dispatch: Dispatch<MobileStoreDispatchTypes>) => {
         try {
             dispatch({ type: LOADING });
-            const { data } = await api().get(`${url}.json`);
+            const { data, status } = await api().get(`${url}.json`);
 
-            if (!data) throw new Error('Something went wrong');
+            if (status !== 200) throw new Error('Failed to get data');
 
-            if (shift) data.shift();
+            if (shift && data) data.shift();
             dispatch({ type, payload: data });
         } catch (error) {
             dispatch({ type: ERROR, payload: error });
@@ -38,3 +39,16 @@ export const SendProduct =
             dispatch({ type: ERROR, payload: error });
         }
     };
+
+export const CancelOrder = (id: string) => async (dispatch: Dispatch<MobileStoreDispatchTypes>) => {
+    try {
+        dispatch({ type: LOADING });
+        const { status } = await api().delete(`/user/ordered-products/${id}.json`);
+
+        if (status !== 200) throw new Error('Failed to cancel the order');
+       
+        dispatch({ type: CANCEL_ORDER, payload: id });
+    } catch (error) {
+        dispatch({ type: ERROR, payload: error });
+    }
+};

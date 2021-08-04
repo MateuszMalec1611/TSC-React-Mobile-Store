@@ -1,3 +1,4 @@
+import { prepareData } from '@utils/prepareData';
 import {
     Product,
     ProductDetail,
@@ -10,12 +11,13 @@ import {
     SENT_ORDER,
     OrderedProduct,
     GET_ORDERED_PRODUCTS,
+    CANCEL_ORDER,
 } from './MobileStore.actions';
 
 interface DefaultState {
-    products?: Product[];
+    products: Product[];
     productDetail?: ProductDetail;
-    orderedProducts?: OrderedProduct[];
+    orderedProducts: OrderedProduct[];
     isOrdering: boolean;
     loading: boolean;
     sent: boolean;
@@ -36,6 +38,13 @@ const MobileStoreReducer = (
     action: MobileStoreDispatchTypes
 ): typeof defaultState => {
     switch (action.type) {
+        case CANCEL_ORDER:
+            const newOrderedProducts = state.orderedProducts.filter(product => product.id !== action.payload);
+            return {
+                ...state,
+                loading: false,
+                orderedProducts: newOrderedProducts,
+            };
         case ERROR:
             return {
                 ...state,
@@ -54,10 +63,11 @@ const MobileStoreReducer = (
                 productDetail: action.payload,
             };
         case GET_ORDERED_PRODUCTS:
+            const preparedOrders = prepareData(action.payload);
             return {
                 ...state,
                 loading: false,
-                orderedProducts: action.payload,
+                orderedProducts: preparedOrders!,
             };
         case IS_ORDERING:
             return {

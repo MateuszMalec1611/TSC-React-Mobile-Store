@@ -67,7 +67,7 @@ const MobileStoreReducer = (
             return {
                 ...state,
                 loading: false,
-                orderedProducts: preparedOrders!,
+                orderedProducts: preparedOrders! ?? [],
             };
         case IS_ORDERING:
             return {

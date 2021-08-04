@@ -11,6 +11,7 @@ import styles from './Profile.module.css';
 const Profile: React.FC = () => {
     const dispatch = useDispatch();
     const orders = useSelector((state: RootStore) => state.mobileStore.orderedProducts!);
+    console.log(orders);
 
     useEffect(() => {
         dispatch(GetData('/user/ordered-products', GET_ORDERED_PRODUCTS, false));
@@ -20,8 +21,10 @@ const Profile: React.FC = () => {
 
     return (
         <motion.div {...pageTransitionFM} className={styles.profile}>
-            <h2>Your Orders</h2>
-            <div className={styles.orderedBox}>{orderedProducts}</div>
+            <h2>Your O<span>r</span>ders</h2>
+            <div className={styles.orderedBox}>
+                {orders.length !== 0 ? orderedProducts : <p>You have not placed any orders yet :/</p>}
+            </div>
         </motion.div>
     );
 };

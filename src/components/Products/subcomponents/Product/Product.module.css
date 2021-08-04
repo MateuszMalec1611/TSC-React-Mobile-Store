@@ -9,6 +9,7 @@
     box-shadow: 1px 1px 5px black;
     background-color: rgb(41, 40, 40);
     cursor: pointer;
+    animation: show 0.5s;
 }
 
 .product div {
@@ -46,5 +47,14 @@
     .product article p {
         margin: 14px 0;
         font-size: 20px;
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

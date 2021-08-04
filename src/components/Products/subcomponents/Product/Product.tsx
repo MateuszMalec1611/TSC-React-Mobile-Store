@@ -6,15 +6,19 @@ export interface ProductProps {
     img: string;
     price: number;
     id: string;
+    visible?: boolean;
 }
 
-const Product: React.FC<ProductProps> = ({ name, img, price, id }) => {
+const Product: React.FC<ProductProps> = ({ name, img, price, id, visible }) => {
     const history = useHistory();
 
     const handleProductDetail = () => history.push(`/product/${id}`);
 
     return (
-        <li onClick={handleProductDetail} className={styles.product}>
+        <li
+            style={visible ? { display: 'block' } : { display: 'none' }}
+            onClick={handleProductDetail}
+            className={styles.product}>
             <div>
                 <article>
                     <h4>{name}</h4>

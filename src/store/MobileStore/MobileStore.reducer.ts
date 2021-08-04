@@ -12,6 +12,7 @@ import {
     OrderedProduct,
     GET_ORDERED_PRODUCTS,
     CANCEL_ORDER,
+    DISPLAY_PRODUCT,
 } from './MobileStore.actions';
 
 interface DefaultState {
@@ -44,6 +45,11 @@ const MobileStoreReducer = (
                 ...state,
                 loading: false,
                 orderedProducts: newOrderedProducts,
+            };
+        case DISPLAY_PRODUCT:
+            return {
+                ...state,
+                products: action.payload,
             };
         case ERROR:
             return {

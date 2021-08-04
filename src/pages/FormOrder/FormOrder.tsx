@@ -61,6 +61,7 @@ const OrderForm: React.FC = () => {
         event.preventDefault();
 
         const product = products!.find(product => product.id === productName);
+        delete product!.visible;
         const date = new Date().toLocaleString(undefined, { dateStyle: 'full', timeStyle: 'long' });
 
         const userData = { name: nameValue, email: emailValue, city: cityValue, postalCode: postalValue };

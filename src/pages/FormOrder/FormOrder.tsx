@@ -4,8 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { ParamTypes } from '@pages/ProductDetail/ProductDetail';
 import { motion } from 'framer-motion';
 import { RootStore } from '@store/Store';
-import { GetData, SendProduct } from '@store/Services/MobileStore.services';
-import { GET_PRODUCTS, SENT_ORDER } from '@store/Actions/MobileStore.actions';
+import { GetData, SendProduct } from '@store/MobileStore/MobileStore.services';
+import { GET_PRODUCTS, SENT_ORDER } from '@store/MobileStore/MobileStore.actions';
 import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
 import useForm from '@hooks/useForm';
@@ -22,7 +22,7 @@ const OrderForm: React.FC = () => {
     const { products, loading, sent: isSent, error } = useSelector((state: RootStore) => state.mobileStore);
 
     useEffect(() => {
-        if (products?.length === 0) dispatch(dispatch(GetData(`/products-header`, GET_PRODUCTS)));
+        if (products?.length === 0) dispatch(GetData(`/products-header`, GET_PRODUCTS));
         dispatch({ type: SENT_ORDER, payload: false });
     }, [dispatch, products]);
 

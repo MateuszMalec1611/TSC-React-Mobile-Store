@@ -1,4 +1,4 @@
-import { OrderedProduct} from '@store/Actions/MobileStore.actions';
+import { OrderedProduct} from '@store/MobileStore/MobileStore.actions';
 
 export const prepareData = (data: OrderedProduct[]) => {
     if (!data) return;

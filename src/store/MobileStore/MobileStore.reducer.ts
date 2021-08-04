@@ -10,7 +10,7 @@ import {
     SENT_ORDER,
     OrderedProduct,
     GET_ORDERED_PRODUCTS,
-} from '../Actions/MobileStore.actions';
+} from './MobileStore.actions';
 
 interface DefaultState {
     products?: Product[];

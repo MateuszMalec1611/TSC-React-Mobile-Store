@@ -6,7 +6,7 @@ import {
     LOADING,
     ERROR,
     SENT_ORDER,
-} from '../Actions/MobileStore.actions';
+} from './MobileStore.actions';
 
 export const GetData =
     (url: string, type: any, shift = true) =>

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from '@store/Store';
-import { GetData } from '@store/Services/MobileStore.services';
+import { GetData } from '@store/MobileStore/MobileStore.services';
 import Product from './subcomponents/Product/Product';
 import Loader from '@components/Ui/Loader/Loader';
 import styles from './Products.module.css';
-import { GET_PRODUCTS } from '@store/Actions/MobileStore.actions';
+import { GET_PRODUCTS } from '@store/MobileStore/MobileStore.actions';
 
 const Products: React.FC = () => {
     const dispatch = useDispatch();

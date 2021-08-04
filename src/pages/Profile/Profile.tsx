@@ -11,7 +11,6 @@ import styles from './Profile.module.css';
 const Profile: React.FC = () => {
     const dispatch = useDispatch();
     const orders = useSelector((state: RootStore) => state.mobileStore.orderedProducts!);
-    console.log(orders);
 
     useEffect(() => {
         dispatch(GetData('/user/ordered-products', GET_ORDERED_PRODUCTS, false));

@@ -54,6 +54,16 @@
     font-size: 33px;
 }
 
+.navList ul li span {
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navList ul li:hover > a span {
+    display: inline-block;
+    color: rgb(117, 178, 248);
+    transform: scale(0.9);
+}
+
 .active span {
     color: var(--color-blue);
 }
@@ -134,7 +144,7 @@
     .logo {
         font-size: 32px;
     }
-    
+
     .navList ul {
         flex-direction: row;
     }

@@ -5,7 +5,7 @@ import { ParamTypes } from '@pages/ProductDetail/ProductDetail';
 import { motion } from 'framer-motion';
 import { RootStore } from '@store/Store';
 import { GetData, SendProduct } from '@store/MobileStore/MobileStore.services';
-import { UpdateUser } from '@store/User/User.services';
+import { GetUserData, UpdateUser } from '@store/User/User.services';
 import { GET_PRODUCTS, SENT_ORDER } from '@store/MobileStore/MobileStore.actions';
 import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
@@ -22,11 +22,14 @@ const OrderForm: React.FC = () => {
     const dispatch = useDispatch();
     const { products, loading, sent: isSent, error } = useSelector((state: RootStore) => state.mobileStore);
     const { totalAmount, quantityOfOrders } = useSelector((state: RootStore) => state.user);
-
+    // GET DATA IF MAY BE OUT OF UPDATES
     useEffect(() => {
         if (products?.length === 0) dispatch(GetData(`/products-header`, GET_PRODUCTS));
         dispatch({ type: SENT_ORDER, payload: false });
     }, [dispatch, products]);
+    useEffect(() => {
+        if (totalAmount === 0 || quantityOfOrders === 0) dispatch(GetUserData());
+    }, [dispatch, quantityOfOrders, totalAmount]);
 
     const {
         value: nameValue,

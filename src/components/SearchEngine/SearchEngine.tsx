@@ -4,15 +4,13 @@ import { RootStore } from '@store/Store';
 import styles from './SearchEngine.module.css';
 import { DISPLAY_PRODUCT } from '@store/MobileStore/MobileStore.actions';
 
-export interface SearchEngineProps {}
-
-const SearchEngine: React.FC<SearchEngineProps> = () => {
+const SearchEngine: React.FC = () => {
     const searchRef = useRef<HTMLInputElement>(null);
     const dispatch = useDispatch();
     const products = useSelector((state: RootStore) => state.mobileStore.products);
 
     const displayCertainProduct = () => {
-        const text = searchRef.current!.value;
+        const text = searchRef.current!.value.toLocaleLowerCase();
 
         const newProductsList = products.map(product => {
             if (product.name.toLocaleLowerCase().includes(text)) {

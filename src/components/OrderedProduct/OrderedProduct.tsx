@@ -17,7 +17,6 @@ const OrderedProduct: React.FC<OrderedProductProps> = ({ id, productInfo, userDa
     const loading = useSelector((state: RootStore) => state.mobileStore.loading);
     const { totalAmount, quantityOfOrders } = useSelector((state: RootStore) => state.user);
     const dispatch = useDispatch();
-    const date = userData.date.slice(0, 32);
 
     const handleCancelOrder = () => {
         const newTotalAmount = totalAmount - productInfo.price;
@@ -47,7 +46,7 @@ const OrderedProduct: React.FC<OrderedProductProps> = ({ id, productInfo, userDa
                 </article>
                 <article>
                     <h4>Date of order:</h4>
-                    <p>{date}</p>
+                    <p>{userData.date.replace('T', ' ')}</p>
                 </article>
                 <Button click={handleCancelOrder}>cancel the order</Button>
             </div>

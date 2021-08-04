@@ -1,0 +1,19 @@
+@import url('../../css/colors.css');
+
+.detailsBox {
+    margin: 30px auto 0 auto;
+    padding: 20px 0;
+    max-width: 450px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    border-radius: 10px;
+}
+
+.detailsBox article h4 {
+    font-size: 20px;
+}
+
+.detailsBox article p {
+    font-size: 18px;
+    color: var(--color-blue);
+}

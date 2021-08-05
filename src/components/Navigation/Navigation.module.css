@@ -53,15 +53,21 @@
 .navList ul li a {
     font-size: 33px;
 }
+.navList ul li img {
+    margin-top: 12px;
+}
 
 .navList ul li span {
+    display: inline-block;
     transition: color 0.3s, transform 0.3s;
 }
 
 .navList ul li:hover > a span {
-    display: inline-block;
     color: rgb(117, 178, 248);
     transform: scale(0.9);
+}
+.navList ul li:hover > a img {
+    filter: invert(12%) sepia(8%) saturate(2000) hue-rotate(556deg) brightness(96%) contrast(84%);
 }
 
 .active span {

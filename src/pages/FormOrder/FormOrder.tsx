@@ -22,14 +22,12 @@ const OrderForm: React.FC = () => {
     const dispatch = useDispatch();
     const { products, loading, sent: isSent, error } = useSelector((state: RootStore) => state.mobileStore);
     const { totalAmount, quantityOfOrders } = useSelector((state: RootStore) => state.user);
-    // GET DATA IF MAY BE OUT OF UPDATES
+    // GET DATA AGAIN
     useEffect(() => {
-        if (products?.length === 0) dispatch(GetData(`/products-header`, GET_PRODUCTS));
+        dispatch(GetUserData());
+        dispatch(GetData(`/products-header`, GET_PRODUCTS));
         dispatch({ type: SENT_ORDER, payload: false });
-    }, [dispatch, products]);
-    useEffect(() => {
-        if (totalAmount === 0 || quantityOfOrders === 0) dispatch(GetUserData());
-    }, [dispatch, quantityOfOrders, totalAmount]);
+    }, [dispatch]);
 
     const {
         value: nameValue,

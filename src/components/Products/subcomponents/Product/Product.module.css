@@ -9,7 +9,6 @@
     box-shadow: 1px 1px 5px black;
     background-color: rgb(41, 40, 40);
     cursor: pointer;
-    animation: show 0.5s;
 }
 
 .product div {
@@ -50,11 +49,3 @@
     }
 }
 
-@keyframes show {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}

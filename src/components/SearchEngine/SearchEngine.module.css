@@ -19,3 +19,7 @@
     border-radius: 5px;
     outline: none;
 }
+
+.searchEngine input:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+}

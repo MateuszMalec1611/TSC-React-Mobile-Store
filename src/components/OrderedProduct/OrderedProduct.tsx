@@ -53,7 +53,9 @@ const OrderedProduct: React.FC<OrderedProductProps> = ({ id, productInfo, userDa
         </>
     );
 
-    return <div className={styles.orderedProduct}>{loading ? <Loader /> : orderedProduct}</div>;
+    return (
+        <div className={`${styles.orderedProduct} showSlower`}>{loading ? <Loader /> : orderedProduct}</div>
+    );
 };
 
 export default OrderedProduct;

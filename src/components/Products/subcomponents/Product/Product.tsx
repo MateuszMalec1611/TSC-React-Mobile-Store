@@ -18,7 +18,7 @@ const Product: React.FC<ProductProps> = ({ name, img, price, id, visible }) => {
         <li
             style={visible ? { display: 'block' } : { display: 'none' }}
             onClick={handleProductDetail}
-            className={styles.product}>
+            className={`${styles.product} showSlower`}>
             <div>
                 <article>
                     <h4>{name}</h4>

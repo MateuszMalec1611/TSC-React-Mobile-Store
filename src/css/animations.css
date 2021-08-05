@@ -24,6 +24,9 @@
 .show {
     animation: showElement 1.6s;
 }
+.showSlower {
+    animation: showElement 0.5s;
+}
 
 @keyframes slideInR {
     from {

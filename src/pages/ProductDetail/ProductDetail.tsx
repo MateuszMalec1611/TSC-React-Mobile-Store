@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
@@ -7,6 +7,7 @@ import pageTransitionFM from '@pages/pageTransition';
 import { GetData } from '@store/MobileStore/MobileStore.services';
 import { GET_PRODUCT_DETAIL, IS_ORDERING } from '@store/MobileStore/MobileStore.actions';
 import Button from '@components/Ui/Button/Button';
+import Loader from '@components/Ui/Loader/Loader';
 import styles from './ProductDetail.module.css';
 export interface ParamTypes {
     productName: string;
@@ -16,7 +17,7 @@ const ProductDetail: React.FC = () => {
     const { productName } = useParams<ParamTypes>();
     const dispatch = useDispatch();
     const history = useHistory();
-    const product = useSelector((state: RootStore) => state.mobileStore.productDetail);
+    const { productDetail: product, loading } = useSelector((state: RootStore) => state.mobileStore);
 
     useEffect(() => {
         dispatch(GetData(`/products-description/${productName}`, GET_PRODUCT_DETAIL, false));
@@ -27,8 +28,8 @@ const ProductDetail: React.FC = () => {
         history.push(`/ordering/${productName}`);
     };
 
-    return (
-        <motion.div {...pageTransitionFM} className={styles.productDetail}>
+    const productDetails = (
+        <div className="showSlower">
             <h2>{product?.name}</h2>
             <img src={product?.img} alt={productName} />
             <article>
@@ -48,6 +49,12 @@ const ProductDetail: React.FC = () => {
                 <p>{product?.ram}</p>
             </article>
             <Button click={handleForm}>Order</Button>
+        </div>
+    );
+
+    return (
+        <motion.div {...pageTransitionFM} className={styles.productDetail}>
+            {loading ? <Loader /> : productDetails}
         </motion.div>
     );
 };

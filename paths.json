@@ -7,7 +7,8 @@
             "@store/*": ["store/*"],
             "@api": ["api"],
             "@hooks/*": ["hooks/*"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@images/*": ["images/*"]
         }
     }
 }

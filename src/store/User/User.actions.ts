@@ -1,3 +1,5 @@
+import { Error } from '../MobileStore/MobileStore.actions';
+
 export const GET_USER_DATA = 'GET_USER_DATA';
 export const UPDATE_TOTAL_AMOUNT = 'UPDATE_TOTAL_AMOUNT';
 
@@ -15,4 +17,4 @@ interface UpdateTotalAmount {
     payload: Details;
 }
 
-export type UserDispatchTypes = GetUserData | UpdateTotalAmount;
+export type UserDispatchTypes = GetUserData | UpdateTotalAmount | Error;

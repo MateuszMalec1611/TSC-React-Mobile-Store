@@ -1,5 +1,6 @@
 import api from '@api';
 import { Dispatch } from 'redux';
+import { ERROR } from '../MobileStore/MobileStore.actions';
 import { GET_USER_DATA, UPDATE_TOTAL_AMOUNT, UserDispatchTypes } from './User.actions';
 
 export const GetUserData = () => async (dispatch: Dispatch<UserDispatchTypes>) => {
@@ -10,7 +11,7 @@ export const GetUserData = () => async (dispatch: Dispatch<UserDispatchTypes>) =
 
         dispatch({ type: GET_USER_DATA, payload: data ?? { totalAmount: 0, quantityOfOrers: 0 } });
     } catch (error) {
-        alert(error);
+        dispatch({ type: ERROR, payload: error.message });
     }
 };
 export const UpdateUser =
@@ -25,6 +26,6 @@ export const UpdateUser =
 
             dispatch({ type: UPDATE_TOTAL_AMOUNT, payload: { totalAmount, quantityOfOrders } });
         } catch (error) {
-            alert(error);
+            dispatch({ type: ERROR, payload: error.message });
         }
     };

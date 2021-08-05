@@ -9,6 +9,7 @@ import { GET_PRODUCT_DETAIL, IS_ORDERING } from '@store/MobileStore/MobileStore.
 import Button from '@components/Ui/Button/Button';
 import Loader from '@components/Ui/Loader/Loader';
 import styles from './ProductDetail.module.css';
+import ErrorModal from '@components/Ui/ErrorModal/ErrorModal';
 export interface ParamTypes {
     productName: string;
 }
@@ -17,7 +18,7 @@ const ProductDetail: React.FC = () => {
     const { productName } = useParams<ParamTypes>();
     const dispatch = useDispatch();
     const history = useHistory();
-    const { productDetail: product, loading } = useSelector((state: RootStore) => state.mobileStore);
+    const { productDetail: product, loading, error } = useSelector((state: RootStore) => state.mobileStore);
 
     useEffect(() => {
         dispatch(GetData(`/products-description/${productName}`, GET_PRODUCT_DETAIL, false));
@@ -55,6 +56,7 @@ const ProductDetail: React.FC = () => {
     return (
         <motion.div {...pageTransitionFM} className={styles.productDetail}>
             {loading ? <Loader /> : productDetails}
+            {!loading && error !== '' ? <ErrorModal /> : null}
         </motion.div>
     );
 };

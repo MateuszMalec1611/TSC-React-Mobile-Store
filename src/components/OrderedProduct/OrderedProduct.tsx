@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from '@store/Store';
 import { Product, UserData } from '@store/MobileStore/MobileStore.actions';
-import Button from '@components/Ui/Button/Button';
-import styles from './OrderedProduct.module.css';
-import Loader from '@components/Ui/Loader/Loader';
 import { CancelOrder } from '@store/MobileStore/MobileStore.services';
 import { UpdateUser } from '@store/User/User.services';
+import Button from '@components/Ui/Button/Button';
+import Loader from '@components/Ui/Loader/Loader';
+import styles from './OrderedProduct.module.css';
 
 export interface OrderedProductProps {
     id: string;

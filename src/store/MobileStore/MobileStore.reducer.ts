@@ -44,6 +44,7 @@ const MobileStoreReducer = (
             return {
                 ...state,
                 loading: false,
+                error: '',
                 orderedProducts: newOrderedProducts,
             };
         case DISPLAY_PRODUCT:
@@ -55,17 +56,20 @@ const MobileStoreReducer = (
             return {
                 ...state,
                 loading: false,
+                error: action.payload,
             };
         case GET_PRODUCTS:
             return {
                 ...state,
                 loading: false,
-                products: action.payload,
+                error: '',
+                products: action.payload ?? [],
             };
         case GET_PRODUCT_DETAIL:
             return {
                 ...state,
                 loading: false,
+                error: '',
                 productDetail: action.payload,
             };
         case GET_ORDERED_PRODUCTS:
@@ -73,6 +77,7 @@ const MobileStoreReducer = (
             return {
                 ...state,
                 loading: false,
+                error: '',
                 orderedProducts: preparedOrders! ?? [],
             };
         case IS_ORDERING:
@@ -89,6 +94,7 @@ const MobileStoreReducer = (
             return {
                 ...state,
                 loading: false,
+                error: '',
                 sent: action.payload,
             };
         default:

@@ -70,17 +70,8 @@
     font-size: 26px;
 }
 
-.fail {
-    font-size: 23px;
-    color: tomato;
-}
-
 @media (min-width: 768px) {
     .success {
         font-size: 36px;
-    }
-
-    .fail {
-        font-size: 33px;
     }
 }

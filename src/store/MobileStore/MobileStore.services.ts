@@ -16,13 +16,13 @@ export const GetData =
             dispatch({ type: LOADING });
             const { data, status } = await api().get(`${url}.json`);
 
-            if (status !== 200) throw new Error('Failed to get data');
+            if (!data && shift) throw new Error('Failed to get data, try again :(');
+            if (status !== 200) throw new Error('Failed to get data, try again :(');
 
             if (shift && data) data.shift();
             dispatch({ type, payload: data });
         } catch (error) {
-            dispatch({ type: ERROR, payload: error });
-            alert(error);
+            dispatch({ type: ERROR, payload: error.message });
         }
     };
 
@@ -36,7 +36,7 @@ export const SendProduct =
 
             dispatch({ type: SENT_ORDER, payload: true });
         } catch (error) {
-            dispatch({ type: ERROR, payload: error });
+            dispatch({ type: ERROR, payload: error.message });
         }
     };
 
@@ -46,9 +46,9 @@ export const CancelOrder = (id: string) => async (dispatch: Dispatch<MobileStore
         const { status } = await api().delete(`/user/ordered-products/${id}.json`);
 
         if (status !== 200) throw new Error('Failed to cancel the order');
-       
+
         dispatch({ type: CANCEL_ORDER, payload: id });
     } catch (error) {
-        dispatch({ type: ERROR, payload: error });
+        dispatch({ type: ERROR, payload: error.message });
     }
 };

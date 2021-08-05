@@ -11,6 +11,7 @@ import pageTransitionFM from '@pages/pageTransition';
 import Button from '@components/Ui/Button/Button';
 import useForm from '@hooks/useForm';
 import Loader from '@components/Ui/Loader/Loader';
+import ErrorModal from '@components/Ui/ErrorModal/ErrorModal';
 import styles from './FormOrder.module.css';
 
 const emialRegex =
@@ -154,7 +155,7 @@ const OrderForm: React.FC = () => {
             {!loading && !isSent ? formContext : null}
             {loading ? <Loader /> : null}
             {!loading && isSent && error === '' ? successComponent : null}
-            {!loading && isSent && error !== '' ? <p className={styles.fail}>{error}</p> : null}
+            {!loading && error !== '' ? <ErrorModal /> : null}
         </motion.div>
     );
 };

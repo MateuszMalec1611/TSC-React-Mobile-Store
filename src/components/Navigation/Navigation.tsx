@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import exit from '../../images/exit.svg';
+import exit from '@images/exit.svg';
 import styles from './Navigation.module.css';
 
 const Navigation: React.FC = () => {

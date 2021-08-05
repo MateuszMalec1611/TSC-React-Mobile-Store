@@ -6,15 +6,16 @@
     left: 0;
     right: 0;
     bottom: 0;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     z-index: 1000;
 }
 
 .errorModal h2 {
+    margin-top: 200px;
     font-size: 40px;
     color: tomato;
 }

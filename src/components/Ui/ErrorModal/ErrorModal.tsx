@@ -30,7 +30,6 @@ const Modal: React.FC<ModalProps> = ({ errorText }) => {
 const ErrorModal: React.FC = () => {
     const { error } = useSelector((state: RootStore) => state.mobileStore);
 
-    document.body.style.overflow = 'hidden';
     window.scrollTo(0, 0);
 
     return <>{ReactDOM.createPortal(<Modal errorText={error} />, modalRoot)}</>;

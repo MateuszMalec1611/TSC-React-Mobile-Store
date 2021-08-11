@@ -9,6 +9,8 @@ export const LOADING = 'LOADING';
 export const SENT_ORDER = 'SENT_ORDER';
 
 //TYPES
+export type GetTypes = typeof GET_PRODUCTS | typeof GET_ORDERED_PRODUCTS | typeof GET_PRODUCT_DETAIL;
+
 export type Product = {
     id: string;
     img: string;

@@ -7,10 +7,11 @@ import {
     ERROR,
     SENT_ORDER,
     CANCEL_ORDER,
+    GetTypes,
 } from './MobileStore.actions';
 
 export const GetData =
-    (url: string, type: any, shift = true) =>
+    (url: string, type: GetTypes, shift = true) =>
     async (dispatch: Dispatch<MobileStoreDispatchTypes>) => {
         try {
             dispatch({ type: LOADING });

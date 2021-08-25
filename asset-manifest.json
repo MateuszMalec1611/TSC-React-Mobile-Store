@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/-TS-React-Mobile-Store/static/css/main.a5ee49f8.chunk.css",
-    "main.js": "/-TS-React-Mobile-Store/static/js/main.83ead920.chunk.js",
-    "main.js.map": "/-TS-React-Mobile-Store/static/js/main.83ead920.chunk.js.map",
-    "runtime-main.js": "/-TS-React-Mobile-Store/static/js/runtime-main.9759b66f.js",
-    "runtime-main.js.map": "/-TS-React-Mobile-Store/static/js/runtime-main.9759b66f.js.map",
-    "static/js/2.5a97600c.chunk.js": "/-TS-React-Mobile-Store/static/js/2.5a97600c.chunk.js",
-    "static/js/2.5a97600c.chunk.js.map": "/-TS-React-Mobile-Store/static/js/2.5a97600c.chunk.js.map",
-    "index.html": "/-TS-React-Mobile-Store/index.html",
-    "static/css/main.a5ee49f8.chunk.css.map": "/-TS-React-Mobile-Store/static/css/main.a5ee49f8.chunk.css.map",
-    "static/js/2.5a97600c.chunk.js.LICENSE.txt": "/-TS-React-Mobile-Store/static/js/2.5a97600c.chunk.js.LICENSE.txt",
-    "static/media/exit.73de6d48.svg": "/-TS-React-Mobile-Store/static/media/exit.73de6d48.svg",
-    "static/media/StartingPage.module.css": "/-TS-React-Mobile-Store/static/media/greeting.cc136a63.jpg"
+    "main.css": "/TSC-React-Mobile-Store/static/css/main.ef1be2c6.chunk.css",
+    "main.js": "/TSC-React-Mobile-Store/static/js/main.8d2b03af.chunk.js",
+    "main.js.map": "/TSC-React-Mobile-Store/static/js/main.8d2b03af.chunk.js.map",
+    "runtime-main.js": "/TSC-React-Mobile-Store/static/js/runtime-main.14a22e95.js",
+    "runtime-main.js.map": "/TSC-React-Mobile-Store/static/js/runtime-main.14a22e95.js.map",
+    "static/js/2.5a97600c.chunk.js": "/TSC-React-Mobile-Store/static/js/2.5a97600c.chunk.js",
+    "static/js/2.5a97600c.chunk.js.map": "/TSC-React-Mobile-Store/static/js/2.5a97600c.chunk.js.map",
+    "index.html": "/TSC-React-Mobile-Store/index.html",
+    "static/css/main.ef1be2c6.chunk.css.map": "/TSC-React-Mobile-Store/static/css/main.ef1be2c6.chunk.css.map",
+    "static/js/2.5a97600c.chunk.js.LICENSE.txt": "/TSC-React-Mobile-Store/static/js/2.5a97600c.chunk.js.LICENSE.txt",
+    "static/media/exit.73de6d48.svg": "/TSC-React-Mobile-Store/static/media/exit.73de6d48.svg",
+    "static/media/StartingPage.module.css": "/TSC-React-Mobile-Store/static/media/greeting.cc136a63.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9759b66f.js",
+    "static/js/runtime-main.14a22e95.js",
     "static/js/2.5a97600c.chunk.js",
-    "static/css/main.a5ee49f8.chunk.css",
-    "static/js/main.83ead920.chunk.js"
+    "static/css/main.ef1be2c6.chunk.css",
+    "static/js/main.8d2b03af.chunk.js"
   ]
 }

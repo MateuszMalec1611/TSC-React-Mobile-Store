@@ -12,7 +12,7 @@ import Profile from '@pages/Profile/Profile';
 const MobileStore: React.FC = () => {
     const location = useLocation();
     const isOrdering = useSelector((state: RootStore) => state.mobileStore.isOrdering);
-
+    
     return (
         <AnimatePresence exitBeforeEnter>
             <Layout>

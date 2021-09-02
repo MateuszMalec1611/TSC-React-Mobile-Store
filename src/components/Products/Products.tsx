@@ -9,16 +9,29 @@ import styles from './Products.module.css';
 
 const Products: React.FC = () => {
     const dispatch = useDispatch();
-    const { products, loading } = useSelector((state: RootStore) => state.mobileStore);
+    const { products, loading, noProductsFound } = useSelector(
+        (state: RootStore) => state.mobileStore
+    );
     useEffect(() => {
         dispatch(GetData(`/products-header`, GET_PRODUCTS));
     }, [dispatch]);
 
     const productsList = products.map(product => <Product key={product.id} {...product} />);
 
+    const renderProducts =
+        productsList.length === 0 ? (
+            <p className={styles.productsInfo}>No products are available at the moment</p>
+        ) : (
+            <ul className={styles.products}>{loading ? <Loader /> : productsList}</ul>
+        );
+
     return (
         <>
-            <ul className={styles.products}>{loading ? <Loader /> : productsList}</ul>
+            {noProductsFound ? (
+                <p className={styles.productsInfo}>No results, please enter a different name</p>
+            ) : (
+                renderProducts
+            )}
         </>
     );
 };

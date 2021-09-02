@@ -1,3 +1,10 @@
+@import url('../../css/colors.css');
+
 .products {
     margin-bottom: 50px;
+}
+
+.productsInfo {
+    font-size: 20px;
+    color: var(--color-blue);
 }

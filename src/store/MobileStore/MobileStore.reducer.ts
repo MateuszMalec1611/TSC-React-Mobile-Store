@@ -21,6 +21,7 @@ interface DefaultState {
     orderedProducts: OrderedProduct[];
     isOrdering: boolean;
     loading: boolean;
+    noProductsFound: boolean;
     sent: boolean;
     error: string;
 }
@@ -29,6 +30,7 @@ const defaultState: DefaultState = {
     products: [],
     orderedProducts: [],
     isOrdering: false,
+    noProductsFound: false, // REQUIRED FOR SEARCH ENGINE
     loading: false,
     sent: false,
     error: '',
@@ -40,7 +42,9 @@ const MobileStoreReducer = (
 ): typeof defaultState => {
     switch (action.type) {
         case CANCEL_ORDER:
-            const newOrderedProducts = state.orderedProducts.filter(product => product.id !== action.payload);
+            const newOrderedProducts = state.orderedProducts.filter(
+                product => product.id !== action.payload
+            );
             return {
                 ...state,
                 loading: false,
@@ -50,7 +54,8 @@ const MobileStoreReducer = (
         case DISPLAY_PRODUCT:
             return {
                 ...state,
-                products: action.payload,
+                products: action.payload.products,
+                noProductsFound: action.payload.noProductsFound,
             };
         case ERROR:
             return {

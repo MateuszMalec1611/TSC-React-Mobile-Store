@@ -9,7 +9,10 @@ export const LOADING = 'LOADING';
 export const SENT_ORDER = 'SENT_ORDER';
 
 //TYPES
-export type GetTypes = typeof GET_PRODUCTS | typeof GET_ORDERED_PRODUCTS | typeof GET_PRODUCT_DETAIL;
+export type GetTypes =
+    | typeof GET_PRODUCTS
+    | typeof GET_ORDERED_PRODUCTS
+    | typeof GET_PRODUCT_DETAIL;
 
 export type Product = {
     id: string;
@@ -43,7 +46,7 @@ export interface CancelOrder {
 }
 export interface DisplayProduct {
     type: typeof DISPLAY_PRODUCT;
-    payload: Product[];
+    payload: { products: Product[]; noProductsFound: boolean };
 }
 export interface Error {
     type: typeof ERROR;

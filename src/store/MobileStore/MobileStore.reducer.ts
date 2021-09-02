@@ -69,6 +69,7 @@ const MobileStoreReducer = (
                 loading: false,
                 error: '',
                 products: action.payload ?? [],
+                noProductsFound: false,
             };
         case GET_PRODUCT_DETAIL:
             return {
